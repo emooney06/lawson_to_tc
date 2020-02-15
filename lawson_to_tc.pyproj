@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{b12e9240-857d-4623-bc98-5c7445736c0b}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>module1.py</StartupFile>
+    <StartupFile>tc_upload.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -20,7 +20,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="main.py" />
-    <Compile Include="module1.py">
+    <Compile Include="tc_upload.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
