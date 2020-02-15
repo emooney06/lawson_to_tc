@@ -116,5 +116,5 @@ lawson['stime'] = lawson['cal_day'].astype(str) + 'T' + lawson['start_time'].ast
 lawson['etime'] = lawson['shift_end'].astype(str) + 'T' + lawson['end_time'].astype(str) + 'Z'
 
 lawson_for_schedule = lawson[['name','stime', 'etime']] 
-lawson.to_csv(lawson_out_file)
- 
+lawson_for_schedule.to_csv(lawson_out_file)
+lawson
