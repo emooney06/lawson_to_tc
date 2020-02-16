@@ -36,8 +36,24 @@ time.sleep(5)
 upload_tool = driver.find_element_by_xpath("./html/body/div[2]/div/div/ul/li[1]")
 upload_tool.click()
 
+time.sleep(3)
 pyautogui.moveTo(1300,850)
 pyautogui.click()
+
+time.sleep(3)
+upload_path = "C:\\Users\Ethan\OneDrive\TigerConnect_MPaCC"
+upload_subdir = 'tc_support_files'
+upload_file = 'final_compiled_schedule.csv'
+pyautogui.typewrite(upload_path)
+pyautogui.press('enter')
+time.wait(3)
+pyautogui.typewrite(upload_subdir)
+pyautogui.press('enter')
+time.wait(3)
+pyautogui.typewrite(upload_file)
+pyautogui.press('enter')
+
+
 
 #time.sleep(5)
 #driver.find_element_by_xpath(".//*[@id='app']/div/div[2]/div[1]/div[1]/div/div/div[2]/div[2]")
