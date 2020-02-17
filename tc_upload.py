@@ -5,53 +5,53 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 import pyautogui
 
-
-driver = webdriver.Chrome()
-driver.get("https://login.tigerconnect.com/app/messenger/index.html?_ga=2.103280259.2040127355.1581561402-2100901986.1581561402")
-#assert "Python" in driver.title
-driver.maximize_window()
-
-time.sleep(10)
-driver.find_element_by_xpath(".//*[@name='username']").send_keys('ejmooney@salud.unm.edu')
-
-continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__UsernameForm']/form/div[3]")
-continue_button.click()
-
-time.sleep(7)
-
-driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[2]/div/input").send_keys('python#1')
-continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[3]/button")
-continue_button.click()
-
-time.sleep(15)
-roles_button = driver.find_element_by_xpath(".//*[@id='app']/div/div[1]/div/div[2]/div/div[1]")
-roles_button.click()
-
-time.sleep(10)
-
-upload_cal_button = driver.find_element_by_xpath(".//*[@id='app']/div/div[2]/div[1]/div[1]/div/div/div[2]/div[2]")
-upload_cal_button.click()
-
-time.sleep(5)
-upload_tool = driver.find_element_by_xpath("./html/body/div[2]/div/div/ul/li[1]")
-upload_tool.click()
-
-time.sleep(3)
-pyautogui.moveTo(1300,850)
-pyautogui.click()
-
-time.sleep(3)
-upload_path = "C:\\Users\Ethan\OneDrive\TigerConnect_MPaCC"
+upload_path = 'C:\\Users\Ethan\OneDrive\TigerConnect_MPaCC'
 upload_subdir = 'tc_support_files'
 upload_file = 'final_compiled_schedule.csv'
-pyautogui.typewrite(upload_path)
-pyautogui.press('enter')
-time.wait(3)
-pyautogui.typewrite(upload_subdir)
-pyautogui.press('enter')
-time.wait(3)
-pyautogui.typewrite(upload_file)
-pyautogui.press('enter')
+
+def drive_tc_upload():
+    driver = webdriver.Chrome()
+    driver.get("https://login.tigerconnect.com/app/messenger/index.html?_ga=2.103280259.2040127355.1581561402-2100901986.1581561402")
+    driver.maximize_window()
+
+
+    time.sleep(10)
+    driver.find_element_by_xpath(".//*[@name='username']").send_keys('ejmooney@salud.unm.edu')
+
+    continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__UsernameForm']/form/div[3]")
+    continue_button.click()
+    time.sleep(7)
+
+    driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[2]/div/input").send_keys('python#1')
+    continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[3]/button")
+    continue_button.click()
+    time.sleep(15)
+    
+    roles_button = driver.find_element_by_xpath(".//*[@id='app']/div/div[1]/div/div[2]/div/div[1]")
+    roles_button.click()
+    time.sleep(10)
+
+    upload_cal_button = driver.find_element_by_xpath(".//*[@id='app']/div/div[2]/div[1]/div[1]/div/div/div[2]/div[2]")
+    upload_cal_button.click()
+    time.sleep(5)
+
+    upload_tool = driver.find_element_by_xpath("./html/body/div[2]/div/div/ul/li[1]")
+    upload_tool.click()
+    time.sleep(3)
+    
+    pyautogui.moveTo(1300,850)
+    pyautogui.click()
+    time.sleep(3)
+    pyautogui.typewrite(upload_path)
+    pyautogui.press('enter')
+    time.sleep(3)
+    pyautogui.typewrite(upload_subdir)
+    pyautogui.press('enter')
+    time.sleep(3)
+    pyautogui.typewrite(upload_file)
+    pyautogui.press('enter')
+    
+drive_tc_upload()
 
 
 
