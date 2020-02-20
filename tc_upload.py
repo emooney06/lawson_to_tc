@@ -4,10 +4,13 @@ import selenium
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import pyautogui
+from stdiomask import getpass
 
 upload_path = 'C:\\Users\Ethan\OneDrive\TigerConnect_MPaCC'
 upload_subdir = 'tc_support_files'
 upload_file = 'final_compiled_schedule.csv'
+
+password = getpass(mask='*')
 
 def drive_tc_upload():
     driver = webdriver.Chrome()
@@ -15,18 +18,18 @@ def drive_tc_upload():
     driver.maximize_window()
 
 
-    time.sleep(10)
+    time.sleep(5)
     driver.find_element_by_xpath(".//*[@name='username']").send_keys('ejmooney@salud.unm.edu')
 
     continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__UsernameForm']/form/div[3]")
     continue_button.click()
     time.sleep(7)
 
-    driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[2]/div/input").send_keys('python#1')
+    driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[2]/div/input").send_keys(password)
     continue_button = driver.find_element_by_xpath(".//*[@id='tc-SignInForm__PasswordForm']/form/div[3]/button")
     continue_button.click()
     time.sleep(15)
-    
+        
     roles_button = driver.find_element_by_xpath(".//*[@id='app']/div/div[1]/div/div[2]/div/div[1]")
     roles_button.click()
     time.sleep(10)
@@ -38,19 +41,28 @@ def drive_tc_upload():
     upload_tool = driver.find_element_by_xpath("./html/body/div[2]/div/div/ul/li[1]")
     upload_tool.click()
     time.sleep(3)
-    
+        
     pyautogui.moveTo(1300,850)
     pyautogui.click()
-    time.sleep(3)
+    time.sleep(2)
     pyautogui.typewrite(upload_path)
     pyautogui.press('enter')
-    time.sleep(3)
+    time.sleep(2)
     pyautogui.typewrite(upload_subdir)
     pyautogui.press('enter')
-    time.sleep(3)
+    time.sleep(2)
     pyautogui.typewrite(upload_file)
     pyautogui.press('enter')
-    
+    time.sleep(15)
+    pyautogui.press('enter')
+    pyautogui.moveTo(1300,950)   
+    pyautogui.click()
+   
+    time.sleep(300)
+    driver.close()
+
+
+
 drive_tc_upload()
 
 
